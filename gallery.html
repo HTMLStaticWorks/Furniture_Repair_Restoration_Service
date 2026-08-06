@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Restoration Gallery | ReviveWood</title>
+    <meta name="description" content="View our portfolio of beautifully restored and repaired furniture pieces.">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'walnut-brown': '#6B4226',
+                        'warm-beige': '#F5E9DA',
+                        'forest-green': '#3F5D45',
+                        'walnut-dark': '#4A2D19'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Loading Animation -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header"
+        class="fixed w-full top-0 z-50 transition-all duration-300 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <div class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded bg-gradient-to-br from-walnut-brown to-walnut-dark text-warm-beige shadow-sm border border-walnut-brown/20 font-serif font-bold text-lg md:text-xl relative overflow-hidden flex-shrink-0"><span class="relative z-10">R</span><div class="absolute inset-0 bg-black/10"></div></div>
+                        <span class="font-serif font-bold text-xl md:text-2xl text-gray-900 dark:text-white">Revive<span
+                                class="text-walnut-brown">Wood</span></span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8 items-center">
+                    <div class="relative group">
+                        <button
+                            class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors flex items-center gap-1">
+                            Home <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 glass z-50">
+                            <a href="index.html"
+                                class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-warm-beige dark:hover:bg-gray-700 rounded-t-md">Home
+                                1 (Elegant)</a>
+                            <a href="home2.html"
+                                class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-warm-beige dark:hover:bg-gray-700 rounded-b-md">Home
+                                2 (Luxury)</a>
+                        </div>
+                    </div>
+                    <a href="about.html"
+                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">About</a>
+                    <a href="gallery.html"
+                        class="nav-link text-walnut-brown dark:text-warm-beige font-semibold hover:text-walnut-brown dark:hover:text-white transition-colors">Restoration</a>
+                    <a href="booking.html"
+                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Book
+                        Service</a>
+                    <a href="blog.html"
+                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Blog</a>
+                    <a href="contact.html"
+                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Contact</a>
+                </nav>
+
+                <!-- Right Actions -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <!-- Toggles -->
+                    <button id="themeToggle"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        aria-label="Toggle Theme">
+                        <i id="themeIcon" class="fa-solid fa-moon text-gray-600 dark:text-gray-300"></i>
+                    </button>
+                    <button id="rtlToggle"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm font-semibold text-gray-600 dark:text-gray-300"
+                        aria-label="Toggle RTL">
+                        RTL
+                    </button>
+                    <!-- Auth -->
+                    <a href="signup.html"
+                        class="bg-walnut-brown hover:bg-walnut-dark text-white px-5 py-2 rounded-md transition-all shadow-md hover:shadow-lg">Signup</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center space-x-2">
+                    <button id="mobileMenuBtn"
+                        class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="hidden lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Home
+                    1</a>
+                <a href="home2.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Home
+                    2</a>
+                <a href="about.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
+                <a href="gallery.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-walnut-brown dark:text-warm-beige bg-gray-50 dark:bg-gray-800">Restoration</a>
+                <a href="booking.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Book
+                    Service</a>
+                <a href="blog.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Blog</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2 flex flex-col space-y-2">
+                    <a href="signup.html"
+                        class="block px-3 py-2 text-center rounded-md text-white bg-walnut-brown">Signup</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="relative pt-40 pb-28 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/img/gallery-hero.png" alt="Restoration Gallery" class="w-full h-full object-cover">
+            <!-- Overlay for readability -->
+            <div class="absolute inset-0 bg-white/70 dark:bg-gray-900/80 backdrop-blur-[2px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 dark:text-white mb-6 drop-shadow-sm">
+                Restoration Gallery</h1>
+            <p class="text-lg md:text-xl text-gray-800 dark:text-gray-200 max-w-2xl mx-auto drop-shadow-sm font-medium">
+                Explore our portfolio of transformed furniture. Filter by category to see specific types of restoration
+                work we perform.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="galleryContainer">
+
+                <!-- Item 1 -->
+                <div class="gallery-item transition-all duration-500 ease-in-out"
+                    data-category="before-after antique chairs">
+                    <div
+                        class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 h-full flex flex-col group">
+                        <div class="relative h-64 overflow-hidden">
+                            <!-- Split Image effect for Before/After if needed, or single large image -->
+                            <img src="https://images.pexels.com/photos/12691635/pexels-photo-12691635.jpeg"
+                                alt="Restored Antique Chair"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <span
+                                class="absolute top-4 right-4 bg-walnut-brown/90 text-white text-xs px-3 py-1 rounded-full font-bold backdrop-blur-sm">After</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Louis XV Armchair
+                                </h3>
+                                <span
+                                    class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded">Antique</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">Complete structural
+                                regluing, stripped old varnish, applied French polish, and fully reupholstered with
+                                damask fabric.</p>
+
+                            <div class="space-y-2 border-t border-gray-100 dark:border-gray-700 pt-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-regular fa-clock w-5 text-center"></i> Time Taken:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white">18 Days</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-solid fa-layer-group w-5 text-center"></i> Materials:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white text-right">Hide Glue,
+                                        Shellac,<br>Silk Damask</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item transition-all duration-500 ease-in-out" data-category="wooden tables">
+                    <div
+                        class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 h-full flex flex-col group">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.pexels.com/photos/3184191/pexels-photo-3184191.jpeg"
+                                alt="Refinished Dining Table"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <span
+                                class="absolute top-4 right-4 bg-walnut-brown/90 text-white text-xs px-3 py-1 rounded-full font-bold backdrop-blur-sm">After</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Oak Dining Table
+                                </h3>
+                                <span
+                                    class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded">Tables</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">Removed deep water stains
+                                and scratches from the tabletop. Sanded to bare wood, restained, and sealed with
+                                polyurethane for daily use.</p>
+
+                            <div class="space-y-2 border-t border-gray-100 dark:border-gray-700 pt-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-regular fa-clock w-5 text-center"></i> Time Taken:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white">7 Days</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-solid fa-layer-group w-5 text-center"></i> Materials:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white text-right">Oxalic Acid, Dark
+                                        Walnut<br>Stain, Polyurethane</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item transition-all duration-500 ease-in-out"
+                    data-category="before-after upholstery chairs">
+                    <div
+                        class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 h-full flex flex-col group">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Reupholstered Sofa"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <span
+                                class="absolute top-4 right-4 bg-walnut-brown/90 text-white text-xs px-3 py-1 rounded-full font-bold backdrop-blur-sm">After</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Mid-Century Sofa
+                                </h3>
+                                <span
+                                    class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded">Upholstery</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">Stripped old torn fabric,
+                                replaced collapsed high-density foam, repaired spring ties, and upholstered in premium
+                                full-grain leather.</p>
+
+                            <div class="space-y-2 border-t border-gray-100 dark:border-gray-700 pt-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-regular fa-clock w-5 text-center"></i> Time Taken:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white">14 Days</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-solid fa-layer-group w-5 text-center"></i> Materials:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white text-right">Italian Leather,
+                                        HR Foam,<br>Jute Webbing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item transition-all duration-500 ease-in-out"
+                    data-category="wooden cabinets antique">
+                    <div
+                        class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 h-full flex flex-col group">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.pexels.com/photos/6826016/pexels-photo-6826016.jpeg"
+                                alt="Restored Cabinet"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <span
+                                class="absolute top-4 right-4 bg-walnut-brown/90 text-white text-xs px-3 py-1 rounded-full font-bold backdrop-blur-sm">After</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Mahogany Credenza
+                                </h3>
+                                <span
+                                    class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded">Cabinets</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">Repaired broken door
+                                hinges, recreated missing molding using custom carving, and restored the sun-faded
+                                finish.</p>
+
+                            <div class="space-y-2 border-t border-gray-100 dark:border-gray-700 pt-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-regular fa-clock w-5 text-center"></i> Time Taken:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white">21 Days</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-solid fa-layer-group w-5 text-center"></i> Materials:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white text-right">Mahogany Wood,
+                                        Brass<br>Hardware, Tung Oil</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="gallery-item transition-all duration-500 ease-in-out" data-category="wooden tables">
+                    <div
+                        class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 h-full flex flex-col group">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Coffee Table"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <span
+                                class="absolute top-4 right-4 bg-walnut-brown/90 text-white text-xs px-3 py-1 rounded-full font-bold backdrop-blur-sm">After</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Live Edge Coffee
+                                    Table</h3>
+                                <span
+                                    class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded">Tables</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">Filled deep cracks with
+                                black epoxy resin, flattened the warped top, and applied a hardwax oil finish to
+                                highlight the natural grain.</p>
+
+                            <div class="space-y-2 border-t border-gray-100 dark:border-gray-700 pt-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-regular fa-clock w-5 text-center"></i> Time Taken:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white">9 Days</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-solid fa-layer-group w-5 text-center"></i> Materials:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white text-right">Black Epoxy
+                                        Resin,<br>Rubio Monocoat</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="gallery-item transition-all duration-500 ease-in-out"
+                    data-category="before-after upholstery chairs antique">
+                    <div
+                        class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 h-full flex flex-col group">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.pexels.com/photos/11607399/pexels-photo-11607399.jpeg"
+                                alt="Victorian Chair"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <span
+                                class="absolute top-4 right-4 bg-walnut-brown/90 text-white text-xs px-3 py-1 rounded-full font-bold backdrop-blur-sm">After</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-bold font-serif text-gray-900 dark:text-white">Victorian Parlor
+                                    Chair</h3>
+                                <span
+                                    class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded">Chairs</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">Careful preservation of
+                                original wood patina. Complete traditional re-upholstery utilizing horsehair stuffing
+                                and coil springs.</p>
+
+                            <div class="space-y-2 border-t border-gray-100 dark:border-gray-700 pt-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-regular fa-clock w-5 text-center"></i> Time Taken:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white">16 Days</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500 dark:text-gray-400"><i
+                                            class="fa-solid fa-layer-group w-5 text-center"></i> Materials:</span>
+                                    <span class="font-medium text-gray-900 dark:text-white text-right">Horsehair, Linen,
+                                        Velvet,<br>Brass Tacks</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        class="bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 pt-16 pb-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Company Overview -->
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded bg-gradient-to-br from-walnut-brown to-walnut-dark text-warm-beige shadow-sm border border-walnut-brown/20 font-serif font-bold text-lg md:text-xl relative overflow-hidden flex-shrink-0"><span class="relative z-10">R</span><div class="absolute inset-0 bg-black/10"></div></div>
+                        <span class="font-serif font-bold text-xl text-gray-900 dark:text-white">Revive<span
+                                class="text-walnut-brown">Wood</span></span>
+                    </a>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Dedicated to preserving the beauty and history of your furniture. We combine traditional
+                        craftsmanship with modern techniques to deliver exceptional restoration services.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-walnut-brown hover:text-white transition-colors"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-walnut-brown hover:text-white transition-colors"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-walnut-brown hover:text-white transition-colors"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-walnut-brown hover:text-white transition-colors"><i
+                                class="fa-brands fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-bold mb-6 font-serif text-lg">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html"
+                                class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs"></i> About Us</a></li>
+                        <li><a href="gallery.html"
+                                class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs"></i> Our Gallery</a></li>
+                        <li><a href="booking.html"
+                                class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs"></i> Book a Service</a></li>
+                        <li><a href="blog.html"
+                                class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs"></i> Restoration Blog</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-bold mb-6 font-serif text-lg">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-walnut-brown"></i>
+                            <span class="text-sm text-gray-600 dark:text-gray-300">123 Craftsman Alley,<br>Woodville, NY
+                                10001</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-walnut-brown"></i>
+                            <span class="text-sm text-gray-600 dark:text-gray-300">+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-walnut-brown"></i>
+                            <span class="text-sm text-gray-600 dark:text-gray-300">hello@revivewood.com</span>
+                        </li>
+                        <li class="flex items-start gap-3 pt-2">
+                            <i class="fa-regular fa-clock mt-1 text-walnut-brown"></i>
+                            <span class="text-sm text-gray-600 dark:text-gray-300">Mon - Fri: 8:00 AM - 6:00 PM<br>Sat:
+                                9:00 AM - 2:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-bold mb-6 font-serif text-lg">Newsletter</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Subscribe to receive restoration tips and
+                        special offers.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Your Email Address"
+                            class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-md focus:outline-none focus:border-walnut-brown w-full">
+                        <button type="button"
+                            class="bg-walnut-brown hover:bg-walnut-dark text-white px-4 py-2 rounded-md transition-colors font-semibold w-full">Subscribe</button>
+                    </form>
+                    <div class="mt-6">
+                        <h5
+                            class="text-xs text-gray-900 dark:text-gray-500 uppercase tracking-wider mb-2 font-semibold">
+                            Service Areas</h5>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Manhattan, Brooklyn, Queens, Long Island,
+                            and surrounding areas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div
+                class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-600 dark:text-gray-500">&copy; 2026 ReviveWood Restoration. All rights
+                    reserved.</p>
+                <div class="flex gap-4 text-sm text-gray-600 dark:text-gray-500">
+                    <a href="#" class="hover:text-walnut-brown dark:hover:text-white transition-colors">Privacy
+                        Policy</a>
+                    <a href="#" class="hover:text-walnut-brown dark:hover:text-white transition-colors">Terms of
+                        Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop"
+        class="bg-walnut-brown hover:bg-walnut-dark text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
