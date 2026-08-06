@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Furniture Repair & Restoration Service</title>
+    <meta name="description"
+        content="Expert furniture repair and restoration services bringing your beloved pieces back to life with skilled craftsmanship.">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'walnut-brown': '#6B4226',
+                        'warm-beige': '#F5E9DA',
+                        'forest-green': '#3F5D45',
+                        'walnut-dark': '#4A2D19'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-warm-beige/30 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Loading Animation -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header"
+        class="fixed w-full top-0 z-50 transition-all duration-300 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <div class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded bg-gradient-to-br from-walnut-brown to-walnut-dark text-warm-beige shadow-sm border border-walnut-brown/20 font-serif font-bold text-lg md:text-xl relative overflow-hidden flex-shrink-0"><span class="relative z-10">R</span><div class="absolute inset-0 bg-black/10"></div></div>
+                        <span class="font-serif font-bold text-xl md:text-2xl text-gray-900 dark:text-white">Revive<span
+                                class="text-walnut-brown">Wood</span></span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8 items-center">
+                    <a href="index.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Home 1</a>
+                    <a href="home2.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Home 2</a>
+                    <a href="about.html"
+                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">About</a>
+                    <a href="gallery.html"
+                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Restoration</a>
+                    <a href="booking.html"
+                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Book
+                        Service</a>
+                    <a href="blog.html"
+                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Blog</a>
+                    <a href="contact.html"
+                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Contact</a>
+                </nav>
+
+                <!-- Right Actions -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <!-- Toggles -->
+                    <button id="themeToggle"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        aria-label="Toggle Theme">
+                        <i id="themeIcon" class="fa-solid fa-moon text-gray-600 dark:text-gray-300"></i>
+                    </button>
+                    <button id="rtlToggle"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm font-semibold text-gray-600 dark:text-gray-300"
+                        aria-label="Toggle RTL">
+                        RTL
+                    </button>
+                    <!-- Auth -->
+                    <a href="signup.html"
+                        class="bg-walnut-brown hover:bg-walnut-dark text-white px-5 py-2 rounded-md transition-all shadow-md hover:shadow-lg">Signup</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center space-x-2">
+                    <button id="mobileThemeToggle" class="p-2 text-gray-600 dark:text-gray-300 lg:hidden">
+                        <!-- Simplified mobile toggle, logic handles ID #themeToggle primarily, could extend -->
+                    </button>
+                    <button id="mobileMenuBtn"
+                        class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="hidden lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Home 1</a>
+                <a href="home2.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Home 2</a>
+                <a href="about.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
+                <a href="gallery.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Restoration</a>
+                <a href="booking.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Book
+                    Service</a>
+                <a href="blog.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Blog</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2 flex flex-col space-y-2">
+                    <a href="signup.html"
+                        class="block px-3 py-2 text-center rounded-md text-white bg-walnut-brown">Signup</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-[90vh] min-h-[600px] flex items-center justify-center mt-20">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/6075988/pexels-photo-6075988.jpeg" alt="Furniture Workshop"
+                class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gray-900/60 dark:bg-gray-900/80"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <span class="block text-warm-beige font-semibold tracking-wider uppercase text-sm mb-4">Expert Craftsmanship
+                Since 1995</span>
+            <h1 class="text-4xl md:text-5xl lg:text-7xl text-white font-bold mb-6 leading-tight">
+                Masterful Restoration for Timeless Pieces
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+                We breathe new life into your beloved furniture. Experience premium repair and restoration services that
+                preserve history and enhance beauty.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="booking.html"
+                    class="bg-walnut-brown hover:bg-walnut-dark text-white px-8 py-3 rounded-md text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                    Book Service
+                </a>
+                <a href="gallery.html"
+                    class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-md text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                    View Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">Why Choose
+                    ReviveWood?</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Our commitment to quality, precision, and
+                    customer satisfaction sets us apart in the art of furniture restoration.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="bg-warm-beige/20 dark:bg-gray-800 p-8 rounded-xl hover-lift border border-transparent hover:border-walnut-brown/30 dark:hover:border-gray-600 transition-all">
+                    <div
+                        class="w-14 h-14 bg-walnut-brown/10 dark:bg-gray-700 flex items-center justify-center rounded-lg mb-6">
+                        <i class="fa-solid fa-hammer text-2xl text-walnut-brown dark:text-warm-beige"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 font-serif">Skilled Craftsmen</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Our artisans possess decades of
+                        experience in traditional and modern woodworking techniques.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="bg-warm-beige/20 dark:bg-gray-800 p-8 rounded-xl hover-lift border border-transparent hover:border-walnut-brown/30 dark:hover:border-gray-600 transition-all">
+                    <div
+                        class="w-14 h-14 bg-walnut-brown/10 dark:bg-gray-700 flex items-center justify-center rounded-lg mb-6">
+                        <i class="fa-solid fa-chess-knight text-2xl text-walnut-brown dark:text-warm-beige"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 font-serif">Antique Specialists</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">We handle historical pieces with extreme
+                        care, ensuring authenticity and value are fully preserved.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="bg-warm-beige/20 dark:bg-gray-800 p-8 rounded-xl hover-lift border border-transparent hover:border-walnut-brown/30 dark:hover:border-gray-600 transition-all">
+                    <div
+                        class="w-14 h-14 bg-walnut-brown/10 dark:bg-gray-700 flex items-center justify-center rounded-lg mb-6">
+                        <i class="fa-solid fa-leaf text-2xl text-walnut-brown dark:text-warm-beige"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 font-serif">Premium Materials</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">We source only the finest woods,
+                        fabrics, and eco-friendly finishes for lasting durability.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div
+                    class="bg-warm-beige/20 dark:bg-gray-800 p-8 rounded-xl hover-lift border border-transparent hover:border-walnut-brown/30 dark:hover:border-gray-600 transition-all">
+                    <div
+                        class="w-14 h-14 bg-walnut-brown/10 dark:bg-gray-700 flex items-center justify-center rounded-lg mb-6">
+                        <i class="fa-solid fa-truck text-2xl text-walnut-brown dark:text-warm-beige"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 font-serif">Pickup & Delivery</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Enjoy hassle-free logistics with our
+                        professional and secure white-glove transportation service.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div
+                    class="bg-warm-beige/20 dark:bg-gray-800 p-8 rounded-xl hover-lift border border-transparent hover:border-walnut-brown/30 dark:hover:border-gray-600 transition-all">
+                    <div
+                        class="w-14 h-14 bg-walnut-brown/10 dark:bg-gray-700 flex items-center justify-center rounded-lg mb-6">
+                        <i class="fa-solid fa-tags text-2xl text-walnut-brown dark:text-warm-beige"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 font-serif">Affordable Pricing</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Transparent, competitive pricing with no
+                        hidden costs for premium quality restoration.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div
+                    class="bg-warm-beige/20 dark:bg-gray-800 p-8 rounded-xl hover-lift border border-transparent hover:border-walnut-brown/30 dark:hover:border-gray-600 transition-all">
+                    <div
+                        class="w-14 h-14 bg-walnut-brown/10 dark:bg-gray-700 flex items-center justify-center rounded-lg mb-6">
+                        <i class="fa-solid fa-heart text-2xl text-walnut-brown dark:text-warm-beige"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 font-serif">Satisfaction Guaranteed
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">We don't consider the job done until you
+                        are completely thrilled with the final result.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Repair Categories -->
+    <section class="py-20 bg-warm-beige/10 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">Our
+                        Expertise</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Discover our comprehensive range of specialized
+                        furniture repair and restoration services tailored to your needs.</p>
+                </div>
+                <a href="booking.html"
+                    class="mt-4 md:mt-0 text-walnut-brown dark:text-warm-beige font-medium hover:underline flex items-center gap-2 group">
+                    View All Services <i
+                        class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Category 1 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1597072689227-8882273e8f6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Wooden Furniture Repair"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 font-serif">Wooden Furniture
+                            Repair</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Fixing structural damage,
+                            joint repairs, and replacing broken wooden components perfectly.</p>
+                        <div class="flex justify-between items-center">
+                            <span
+                                class="text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full"><i
+                                    class="fa-regular fa-clock mr-1"></i> 3-5 Days</span>
+                            <a href="booking.html"
+                                class="text-walnut-brown dark:text-warm-beige text-sm font-semibold hover:underline">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category 2 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Upholstery Restoration"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 font-serif">Upholstery
+                            Restoration</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Complete re-upholstery,
+                            foam replacement, and fabric repair for sofas and chairs.</p>
+                        <div class="flex justify-between items-center">
+                            <span
+                                class="text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full"><i
+                                    class="fa-regular fa-clock mr-1"></i> 7-10 Days</span>
+                            <a href="booking.html"
+                                class="text-walnut-brown dark:text-warm-beige text-sm font-semibold hover:underline">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category 3 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1601084227038-2c2ea557555e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Antique Restoration"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 font-serif">Antique Restoration
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Delicate preservation and
+                            restoration of vintage pieces maintaining historical integrity.</p>
+                        <div class="flex justify-between items-center">
+                            <span
+                                class="text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full"><i
+                                    class="fa-regular fa-clock mr-1"></i> 14-21 Days</span>
+                            <a href="booking.html"
+                                class="text-walnut-brown dark:text-warm-beige text-sm font-semibold hover:underline">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category 4 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1595514535311-6677e23b8f67?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Cabinet Repair"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 font-serif">Cabinet Repair</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Fixing hinges, replacing
+                            doors, structural reinforcement, and surface refinishing.</p>
+                        <div class="flex justify-between items-center">
+                            <span
+                                class="text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full"><i
+                                    class="fa-regular fa-clock mr-1"></i> 4-7 Days</span>
+                            <a href="booking.html"
+                                class="text-walnut-brown dark:text-warm-beige text-sm font-semibold hover:underline">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category 5 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1577140917170-285929fb55b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Table Refinishing"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 font-serif">Table Refinishing
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Sanding, stain matching,
+                            polishing, and protective coating for dining and coffee tables.</p>
+                        <div class="flex justify-between items-center">
+                            <span
+                                class="text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full"><i
+                                    class="fa-regular fa-clock mr-1"></i> 5-8 Days</span>
+                            <a href="booking.html"
+                                class="text-walnut-brown dark:text-warm-beige text-sm font-semibold hover:underline">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category 6 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1506898667547-42e22a46e125?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Chair Restoration"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 font-serif">Chair Restoration
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">Regluing wobbly joints,
+                            replacing broken spindles, and full aesthetic restoration.</p>
+                        <div class="flex justify-between items-center">
+                            <span
+                                class="text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full"><i
+                                    class="fa-regular fa-clock mr-1"></i> 3-6 Days</span>
+                            <a href="booking.html"
+                                class="text-walnut-brown dark:text-warm-beige text-sm font-semibold hover:underline">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Showcase -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">Transformations
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Witness the magic of our craftsmanship
+                    through these remarkable restoration stories.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Transformation 1 -->
+                <div
+                    class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="grid grid-cols-2 gap-4 mb-6 relative">
+                        <div class="relative group rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Before Restoration"
+                                class="w-full h-64 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-semibold backdrop-blur-sm">Before</span>
+                        </div>
+                        <div class="relative group rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="After Restoration" class="w-full h-64 object-cover">
+                            <span
+                                class="absolute top-4 right-4 bg-walnut-brown text-white text-xs px-3 py-1 rounded-full font-semibold shadow-md">After</span>
+                        </div>
+                        <!-- Arrow Icon in middle -->
+                        <div
+                            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-700 z-10">
+                            <i class="fa-solid fa-arrow-right-arrow-left text-walnut-brown dark:text-warm-beige"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 font-serif">Mid-Century Modern
+                        Chair</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">Completely stripped the
+                        damaged varnish, repaired loose joints, applied a fresh walnut stain, and re-upholstered with
+                        premium green velvet.</p>
+                    <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                        <span><i class="fa-solid fa-hourglass-half text-walnut-brown mr-1"></i> 10 Days</span>
+                        <span><i class="fa-solid fa-check-circle text-forest-green mr-1"></i> Full Restoration</span>
+                    </div>
+                </div>
+
+                <!-- Transformation 2 -->
+                <div
+                    class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="grid grid-cols-2 gap-4 mb-6 relative">
+                        <div class="relative group rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1616464916356-3a4082e1c315?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="Before Restoration"
+                                class="w-full h-64 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-semibold backdrop-blur-sm">Before</span>
+                        </div>
+                        <div class="relative group rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1604578762246-41134e37f9cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                alt="After Restoration" class="w-full h-64 object-cover">
+                            <span
+                                class="absolute top-4 right-4 bg-walnut-brown text-white text-xs px-3 py-1 rounded-full font-semibold shadow-md">After</span>
+                        </div>
+                        <!-- Arrow Icon in middle -->
+                        <div
+                            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-700 z-10">
+                            <i class="fa-solid fa-arrow-right-arrow-left text-walnut-brown dark:text-warm-beige"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 font-serif">Victorian Dining Table
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">Restored deep scratches and
+                        water rings. Sanded down to bare wood, matched original mahogany hue, and sealed with high-gloss
+                        lacquer.</p>
+                    <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                        <span><i class="fa-solid fa-hourglass-half text-walnut-brown mr-1"></i> 14 Days</span>
+                        <span><i class="fa-solid fa-check-circle text-forest-green mr-1"></i> Refinishing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="gallery.html"
+                    class="inline-flex items-center gap-2 text-walnut-brown dark:text-warm-beige font-semibold hover:underline">
+                    View More Projects <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="py-20 bg-warm-beige/20 dark:bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">Client Stories
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Hear what our satisfied clients have to
+                    say about their restored heirlooms.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div
+                    class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover-lift">
+                    <div class="flex gap-1 text-yellow-500 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic mb-6">"They completely revived my grandmother's
+                        antique dresser. I thought it was beyond repair, but it looks absolutely stunning now. True
+                        artisans!"</p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-800 pt-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J."
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Sarah Jenkins</h4>
+                            <span class="text-xs text-walnut-brown dark:text-warm-beige font-medium">Repaired: Antique
+                                Dresser</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div
+                    class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover-lift">
+                    <div class="flex gap-1 text-yellow-500 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic mb-6">"Professional from start to finish. They
+                        picked up my damaged dining chairs, fixed the broken legs securely, and color-matched the stain
+                        perfectly."</p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-800 pt-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael R."
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Michael Roberts</h4>
+                            <span class="text-xs text-walnut-brown dark:text-warm-beige font-medium">Repaired: Dining
+                                Chairs</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div
+                    class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover-lift">
+                    <div class="flex gap-1 text-yellow-500 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic mb-6">"The upholstery job on my vintage sofa is
+                        impeccable. The attention to detail with the piping and fabric alignment shows their high skill
+                        level."</p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-800 pt-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily T."
+                            class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Emily Thompson</h4>
+                            <span class="text-xs text-walnut-brown dark:text-warm-beige font-medium">Repaired: Vintage
+                                Sofa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                alt="Wood texture" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-walnut-dark/80"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Bring Your Furniture Back to Life</h2>
+            <p class="text-lg text-warm-beige mb-10 max-w-2xl mx-auto">Don't replace what can be restored. Let our
+                experts give your valued pieces a second chance to shine in your home.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="booking.html"
+                    class="bg-warm-beige text-walnut-dark font-bold hover:bg-white px-8 py-3 rounded-md text-lg transition-all shadow-lg hover:shadow-xl">
+                    Book Service Now
+                </a>
+                <a href="contact.html"
+                    class="bg-transparent border-2 border-warm-beige text-warm-beige hover:bg-warm-beige hover:text-walnut-dark px-8 py-3 rounded-md text-lg transition-all font-semibold">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 pt-16 pb-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Company Overview -->
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded bg-gradient-to-br from-walnut-brown to-walnut-dark text-warm-beige shadow-sm border border-walnut-brown/20 font-serif font-bold text-lg md:text-xl relative overflow-hidden flex-shrink-0"><span class="relative z-10">R</span><div class="absolute inset-0 bg-black/10"></div></div>
+                        <span class="font-serif font-bold text-xl text-gray-900 dark:text-white">Revive<span class="text-walnut-brown">Wood</span></span>
+                    </a>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Dedicated to preserving the beauty and history of your furniture. We combine traditional craftsmanship with modern techniques to deliver exceptional restoration services.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-walnut-brown hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-walnut-brown hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-walnut-brown hover:text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-walnut-brown hover:text-white transition-colors"><i class="fa-brands fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-bold mb-6 font-serif text-lg">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> About Us</a></li>
+                        <li><a href="gallery.html" class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Our Gallery</a></li>
+                        <li><a href="booking.html" class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Book a Service</a></li>
+                        <li><a href="blog.html" class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Restoration Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-warm-beige transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-bold mb-6 font-serif text-lg">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-walnut-brown"></i>
+                            <span class="text-sm text-gray-600 dark:text-gray-300">123 Craftsman Alley,<br>Woodville, NY 10001</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-walnut-brown"></i>
+                            <span class="text-sm text-gray-600 dark:text-gray-300">+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-walnut-brown"></i>
+                            <span class="text-sm text-gray-600 dark:text-gray-300">hello@revivewood.com</span>
+                        </li>
+                        <li class="flex items-start gap-3 pt-2">
+                            <i class="fa-regular fa-clock mt-1 text-walnut-brown"></i>
+                            <span class="text-sm text-gray-600 dark:text-gray-300">Mon - Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-bold mb-6 font-serif text-lg">Newsletter</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Subscribe to receive restoration tips and special offers.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Your Email Address" class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-md focus:outline-none focus:border-walnut-brown w-full">
+                        <button type="button" class="bg-walnut-brown hover:bg-walnut-dark text-white px-4 py-2 rounded-md transition-colors font-semibold w-full">Subscribe</button>
+                    </form>
+                    <div class="mt-6">
+                        <h5 class="text-xs text-gray-900 dark:text-gray-500 uppercase tracking-wider mb-2 font-semibold">Service Areas</h5>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Manhattan, Brooklyn, Queens, Long Island, and surrounding areas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-600 dark:text-gray-500">&copy; 2026 ReviveWood Restoration. All rights reserved.</p>
+                <div class="flex gap-4 text-sm text-gray-600 dark:text-gray-500">
+                    <a href="#" class="hover:text-walnut-brown dark:hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-walnut-brown dark:hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop"
+        class="bg-walnut-brown hover:bg-walnut-dark text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
