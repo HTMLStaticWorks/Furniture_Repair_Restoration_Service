@@ -34,7 +34,7 @@
         }
     </script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex items-center justify-center relative overflow-hidden transition-colors duration-300">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col items-center justify-center relative transition-colors duration-300 py-12 pt-24 sm:pt-12">
 
     <!-- Loading Animation -->
     <div id="loader">
@@ -42,13 +42,13 @@
     </div>
 
     <!-- Background Elements -->
-    <div class="absolute inset-0 z-0">
+    <div class="fixed inset-0 z-0">
         <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Wood background" class="w-full h-full object-cover filter brightness-50 dark:brightness-25">
         <div class="absolute inset-0 bg-walnut-dark/80 dark:bg-gray-900/90 mix-blend-multiply"></div>
     </div>
 
     <!-- Quick controls (Theme/RTL) -->
-    <div class="absolute top-6 right-6 z-20 flex gap-4">
+    <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 flex gap-2 sm:gap-4">
         <button id="themeToggle" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-colors flex items-center justify-center">
             <i id="themeIcon" class="fa-solid fa-moon"></i>
         </button>
@@ -118,9 +118,31 @@
                     <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-sm font-bold text-white bg-walnut-brown hover:bg-walnut-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-walnut-brown transition-all">
                         Log In
                     </button>
+
+                    <!-- Social Login Divider & Buttons -->
+                    <div class="relative my-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-200 dark:border-gray-700"></div>
+                        </div>
+                        <div class="relative flex justify-center text-xs uppercase tracking-wider">
+                            <span class="px-3 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">Or continue with</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <button type="button" class="flex items-center justify-center py-2.5 px-4 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            <i class="fa-brands fa-google text-red-500 text-lg"></i>
+                        </button>
+                        <button type="button" class="flex items-center justify-center py-2.5 px-4 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+                        </button>
+                        <button type="button" class="flex items-center justify-center py-2.5 px-4 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            <i class="fa-brands fa-apple text-gray-900 dark:text-white text-lg"></i>
+                        </button>
+                    </div>
                 </form>
 
-                <div class="mt-8 text-center">
+                <div class="mt-6 text-center border-t border-gray-200 dark:border-gray-700 pt-5">
                     <p class="text-sm text-gray-600 dark:text-gray-400">
                         Don't have an account? 
                         <a href="signup.html" class="font-semibold text-walnut-brown dark:text-warm-beige hover:underline">

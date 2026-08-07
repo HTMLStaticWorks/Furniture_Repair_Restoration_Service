@@ -64,24 +64,27 @@
                 </div>
 
                 <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex space-x-8 items-center">
-                    <a href="index.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Home 1</a>
-                    <a href="home2.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Home 2</a>
+                <nav class="hidden lg:flex lg:space-x-4 xl:space-x-8 items-center">
+                    <a href="index.html"
+                        class="nav-link text-sm xl:text-base text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Home 1</a>
+                    <a href="home2.html"
+                        class="nav-link text-sm xl:text-base text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Home
+                        2</a>
                     <a href="about.html"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">About</a>
+                        class="nav-link text-sm xl:text-base text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">About</a>
                     <a href="gallery.html"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Restoration</a>
+                        class="nav-link text-sm xl:text-base text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Restoration</a>
                     <a href="booking.html"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Book
+                        class="nav-link text-sm xl:text-base text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Book
                         Service</a>
                     <a href="blog.html"
-                        class="nav-link text-walnut-brown dark:text-warm-beige font-semibold hover:text-walnut-brown dark:hover:text-white transition-colors">Blog</a>
+                        class="nav-link text-sm xl:text-base text-walnut-brown dark:text-warm-beige font-semibold hover:text-walnut-brown dark:hover:text-white transition-colors">Blog</a>
                     <a href="contact.html"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Contact</a>
+                        class="nav-link text-sm xl:text-base text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Contact</a>
                 </nav>
 
                 <!-- Right Actions -->
-                <div class="hidden lg:flex items-center space-x-4">
+                <div class="hidden lg:flex items-center lg:space-x-2 xl:space-x-4">
                     <!-- Toggles -->
                     <button id="themeToggle"
                         class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -125,9 +128,20 @@
                     class="block px-3 py-2 rounded-md text-base font-medium text-walnut-brown dark:text-warm-beige bg-gray-50 dark:bg-gray-800">Blog</a>
                 <a href="contact.html"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
-                <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2 flex flex-col space-y-2">
+                <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2 flex flex-col space-y-3 px-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Preferences</span>
+                        <div class="flex items-center space-x-2">
+                            <button id="mobileThemeToggle" class="w-10 h-10 flex items-center justify-center rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors bg-gray-50 dark:bg-gray-800" aria-label="Toggle Theme">
+                                <i id="mobileThemeIcon" class="fa-solid fa-moon"></i>
+                            </button>
+                            <button id="mobileRtlToggle" class="w-10 h-10 flex items-center justify-center rounded-full text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors bg-gray-50 dark:bg-gray-800" aria-label="Toggle RTL">
+                                RTL
+                            </button>
+                        </div>
+                    </div>
                     <a href="signup.html"
-                        class="block px-3 py-2 text-center rounded-md text-white bg-walnut-brown">Signup</a>
+                        class="block py-2 text-center rounded-md text-white bg-walnut-brown w-full">Signup</a>
                 </div>
             </div>
         </div>

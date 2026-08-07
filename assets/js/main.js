@@ -20,31 +20,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Theme Toggle (Dark/Light Mode)
-    const themeToggleBtn = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
+    const themeToggleBtns = document.querySelectorAll('#themeToggle, #mobileThemeToggle');
+    const themeIcons = document.querySelectorAll('#themeIcon, #mobileThemeIcon');
     
     // Check for saved theme preference or use system preference
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
-        if (themeIcon) {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
+        themeIcons.forEach(icon => {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        });
     } else {
         document.documentElement.classList.remove('dark');
-        if (themeIcon) {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
+        themeIcons.forEach(icon => {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        });
     }
 
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', function() {
+    themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
             // Toggle icon
-            if (themeIcon) {
-                themeIcon.classList.toggle('fa-moon');
-                themeIcon.classList.toggle('fa-sun');
-            }
+            themeIcons.forEach(icon => {
+                icon.classList.toggle('fa-moon');
+                icon.classList.toggle('fa-sun');
+            });
             
             // Toggle theme
             if (localStorage.getItem('color-theme')) {
@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-    }
+    });
 
     // 4. RTL Toggle
-    const rtlToggleBtn = document.getElementById('rtlToggle');
-    if (rtlToggleBtn) {
+    const rtlToggleBtns = document.querySelectorAll('#rtlToggle, #mobileRtlToggle');
+    if (rtlToggleBtns.length > 0) {
         // Check local storage for RTL preference
         if (localStorage.getItem('dir') === 'rtl') {
             document.documentElement.setAttribute('dir', 'rtl');
@@ -77,15 +77,17 @@ document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.setAttribute('dir', 'ltr');
         }
 
-        rtlToggleBtn.addEventListener('click', () => {
-            const currentDir = document.documentElement.getAttribute('dir');
-            if (currentDir === 'rtl') {
-                document.documentElement.setAttribute('dir', 'ltr');
-                localStorage.setItem('dir', 'ltr');
-            } else {
-                document.documentElement.setAttribute('dir', 'rtl');
-                localStorage.setItem('dir', 'rtl');
-            }
+        rtlToggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const currentDir = document.documentElement.getAttribute('dir');
+                if (currentDir === 'rtl') {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                    localStorage.setItem('dir', 'ltr');
+                } else {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                    localStorage.setItem('dir', 'rtl');
+                }
+            });
         });
     }
 
@@ -129,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
         if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
-            link.classList.add('text-walnut-brown', 'dark:text-warm-beige', 'font-semibold');
+            link.classList.add('text-walnut-brown', 'dark:text-warm-beige', 'font-semibold', 'underline', 'decoration-2', 'underline-offset-8');
             link.classList.remove('text-gray-700', 'dark:text-gray-300');
         }
     });
