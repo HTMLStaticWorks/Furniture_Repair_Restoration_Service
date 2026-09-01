@@ -156,17 +156,17 @@
     <section class="relative pt-40 pb-28 overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <img src="assets/img/about-hero.png" alt="Premium furniture restoration workshop"
+            <img src="https://images.pexels.com/photos/172277/pexels-photo-172277.jpeg" alt="Premium furniture restoration workshop"
                 class="w-full h-full object-cover">
             <!-- Overlay for readability -->
-            <div class="absolute inset-0 bg-white/70 dark:bg-gray-900/80 backdrop-blur-[2px]"></div>
+            <div class="absolute inset-0 bg-gray-900/50"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h1
-                class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 dark:text-white mb-6 drop-shadow-sm">
+                class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 drop-shadow-sm">
                 About ReviveWood</h1>
-            <p class="text-lg md:text-xl text-gray-800 dark:text-gray-200 max-w-2xl mx-auto drop-shadow-sm font-medium">
+            <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-sm font-medium">
                 Discover the passion, history, and master craftsmanship behind our premium furniture restoration
                 workshop.</p>
         </div>
@@ -180,9 +180,9 @@
                     <img src="https://images.pexels.com/photos/6826009/pexels-photo-6826009.jpeg"
                         alt="Craftsman working" class="rounded-2xl shadow-xl w-full h-[500px] object-cover">
                     <div
-                        class="absolute -bottom-8 -right-8 bg-walnut-brown text-white p-8 rounded-xl shadow-lg hidden md:block">
-                        <p class="text-4xl font-serif font-bold mb-1">1995</p>
-                        <p class="text-sm uppercase tracking-wider">Established</p>
+                        class="absolute hidden md:block md:-bottom-4 md:right-4 lg:-bottom-8 lg:-right-8 bg-walnut-brown text-white p-6 lg:p-8 rounded-xl shadow-lg z-10">
+                        <p class="text-3xl lg:text-4xl font-serif font-bold mb-1">1995</p>
+                        <p class="text-xs lg:text-sm uppercase tracking-wider">Established</p>
                     </div>
                 </div>
                 <div>
@@ -385,29 +385,56 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="col-span-2 row-span-2">
-                    <img src="https://images.pexels.com/photos/5059649/pexels-photo-5059649.jpeg"
-                        alt="Workshop overview"
-                        class="w-full h-full object-cover rounded-xl shadow-sm hover:opacity-90 transition-opacity cursor-pointer">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-1 transition-transform duration-300 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.pexels.com/photos/5059649/pexels-photo-5059649.jpeg" alt="Workshop overview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-2">Master Craftsmanship</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Our artisans dedicate hours to perfect every detail, ensuring your furniture's legacy lives on.</p>
+                    </div>
                 </div>
-                <div>
-                    <img src="https://images.pexels.com/photos/6790054/pexels-photo-6790054.jpeg"
-                        alt="Woodworking tools"
-                        class="w-full h-48 object-cover rounded-xl shadow-sm hover:opacity-90 transition-opacity cursor-pointer">
+                <!-- Gallery Item 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-1 transition-transform duration-300 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.pexels.com/photos/6790054/pexels-photo-6790054.jpeg" alt="Woodworking tools" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-2">Precision Tools</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">We use a blend of traditional hand tools and modern equipment for the finest restoration results.</p>
+                    </div>
                 </div>
-                <div>
-                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                        alt="Upholstery fabric"
-                        class="w-full h-48 object-cover rounded-xl shadow-sm hover:opacity-90 transition-opacity cursor-pointer">
+                <!-- Gallery Item 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-1 transition-transform duration-300 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Upholstery fabric" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-2">Premium Fabrics</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Sourcing the highest quality textiles to breathe new life into your beloved upholstered pieces.</p>
+                    </div>
                 </div>
-                <div>
-                    <img src="https://images.pexels.com/photos/5466146/pexels-photo-5466146.jpeg" alt="Sanding wood"
-                        class="w-full h-48 object-cover rounded-xl shadow-sm hover:opacity-90 transition-opacity cursor-pointer">
+                <!-- Gallery Item 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-1 transition-transform duration-300 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.pexels.com/photos/5466146/pexels-photo-5466146.jpeg" alt="Sanding wood" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-2">Detailed Finishing</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Careful sanding and preparation are the foundation of our flawless, long-lasting finishes.</p>
+                    </div>
                 </div>
-                <div>
-                    <img src="https://images.pexels.com/photos/221027/pexels-photo-221027.jpeg" alt="Wood stain"
-                        class="w-full h-48 object-cover rounded-xl shadow-sm hover:opacity-90 transition-opacity cursor-pointer">
+                <!-- Gallery Item 5 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-1 transition-transform duration-300 group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.pexels.com/photos/221027/pexels-photo-221027.jpeg" alt="Wood stain" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-2">Custom Staining</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Expert color matching and staining techniques to restore the original luster of your wood.</p>
+                    </div>
                 </div>
             </div>
         </div>

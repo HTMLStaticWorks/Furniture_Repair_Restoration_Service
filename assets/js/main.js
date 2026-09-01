@@ -173,4 +173,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 9. Image Comparison Slider
+    const imageSliders = document.querySelectorAll('.image-slider-range');
+    imageSliders.forEach(slider => {
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            const container = e.target.parentElement;
+            const beforeWrapper = container.querySelector('.before-wrapper');
+            const handle = container.querySelector('.slider-handle');
+            
+            if (beforeWrapper && handle) {
+                beforeWrapper.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+                handle.style.left = `${val}%`;
+            }
+        });
+    });
 });
+

@@ -51,32 +51,25 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="flex items-center gap-2">
+                    <a href="index.html" class="flex items-center gap-3">
                         <div
-                            class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded bg-gradient-to-br from-walnut-brown to-walnut-dark text-warm-beige shadow-sm border border-walnut-brown/20 font-serif font-bold text-lg md:text-xl relative overflow-hidden flex-shrink-0">
-                            <span class="relative z-10">R</span>
-                            <div class="absolute inset-0 bg-black/10"></div>
+                            class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-lg bg-walnut-dark text-warm-beige font-serif font-bold text-2xl md:text-3xl shadow-sm flex-shrink-0">
+                            <span>R</span>
                         </div>
-                        <span class="font-serif font-bold text-xl md:text-2xl text-gray-900 dark:text-white">Revive<span
-                                class="text-walnut-brown">Wood</span></span>
+                        <span class="font-serif font-bold tracking-normal text-2xl md:text-3xl text-gray-900 dark:text-white">Revive<span
+                                class="text-walnut-brown dark:text-warm-beige font-medium ml-0.5">Wood</span></span>
                     </a>
                 </div>
 
                 <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex space-x-8 items-center">
-                    <a href="index.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Home 1</a>
-                    <a href="home2.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Home 2</a>
-                    <a href="about.html"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">About</a>
-                    <a href="gallery.html"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Restoration</a>
-                    <a href="booking.html"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Book
-                        Service</a>
-                    <a href="blog.html"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Blog</a>
-                    <a href="contact.html"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Contact</a>
+                <nav class="hidden lg:flex lg:space-x-4 xl:space-x-8 items-center">
+                    <a href="index.html" class="nav-link text-sm xl:text-base whitespace-nowrap text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Home 1</a>
+                    <a href="home2.html" class="nav-link text-sm xl:text-base whitespace-nowrap text-walnut-brown dark:text-warm-beige font-semibold hover:text-walnut-brown dark:hover:text-white transition-colors">Home 2</a>
+                    <a href="about.html" class="nav-link text-sm xl:text-base whitespace-nowrap text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">About</a>
+                    <a href="gallery.html" class="nav-link text-sm xl:text-base whitespace-nowrap text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Restoration</a>
+                    <a href="booking.html" class="nav-link text-sm xl:text-base whitespace-nowrap text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Book Service</a>
+                    <a href="blog.html" class="nav-link text-sm xl:text-base whitespace-nowrap text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Blog</a>
+                    <a href="contact.html" class="nav-link text-sm xl:text-base whitespace-nowrap text-gray-700 dark:text-gray-300 hover:text-walnut-brown dark:hover:text-white transition-colors">Contact</a>
                 </nav>
 
                 <!-- Right Actions -->
@@ -167,11 +160,11 @@
                 </div>
                 <h1
                     class="text-4xl md:text-5xl lg:text-6xl text-white md:text-gray-900 md:dark:text-white font-bold mb-6 font-serif leading-tight">
-                    The Art of <br><span
-                        class="text-warm-beige md:text-walnut-brown dark:text-warm-beige italic">Furniture
+                    The Art of <span
+                        class="text-warm-beige md:text-walnut-brown dark:text-warm-beige">Furniture
                         Renewal</span>
                 </h1>
-                <p class="text-lg text-gray-200 md:text-gray-600 md:dark:text-gray-400 mb-10 font-light max-w-md mx-auto">
+                <p class="text-lg text-gray-200 md:text-gray-600 md:dark:text-gray-400 mb-10 font-light max-w-xl mx-auto">
                     Elevating your living spaces by resurrecting the lost glory of fine woods and luxurious
                     upholsteries.
                 </p>
@@ -431,22 +424,33 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <!-- Project Card -->
                 <div class="group relative overflow-hidden rounded-xl">
-                    <div class="grid grid-cols-2">
-                        <div class="relative">
+                    <div class="relative h-80 w-full">
+                        <!-- After -->
+                        <img src="https://images.pexels.com/photos/1647662/pexels-photo-1647662.jpeg" alt="After"
+                            class="absolute inset-0 w-full h-full object-cover">
+                        <span
+                            class="absolute top-4 right-4 bg-walnut-brown text-white text-xs px-4 py-1.5 uppercase tracking-wider font-bold rounded-full z-10 shadow-md">After</span>
+
+                        <!-- Before -->
+                        <div class="absolute inset-0 w-full h-full before-wrapper" style="clip-path: inset(0 50% 0 0);">
                             <img src="https://images.pexels.com/photos/1647662/pexels-photo-1647662.jpeg" alt="Before"
-                                class="w-full h-80 object-cover filter grayscale">
+                                class="absolute inset-0 w-full h-full object-cover filter grayscale">
                             <span
-                                class="absolute top-4 left-4 bg-black/80 text-xs px-2 py-1 uppercase tracking-wider font-bold">Before</span>
+                                class="absolute top-4 left-4 bg-black/80 text-white text-xs px-4 py-1.5 uppercase tracking-wider font-bold rounded-full shadow-md">Before</span>
                         </div>
-                        <div class="relative">
-                            <img src="https://images.pexels.com/photos/1647662/pexels-photo-1647662.jpeg" alt="After"
-                                class="w-full h-80 object-cover">
-                            <span
-                                class="absolute top-4 right-4 bg-walnut-brown text-white text-xs px-2 py-1 uppercase tracking-wider font-bold">After</span>
+
+                        <!-- Slider Input -->
+                        <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 image-slider-range" />
+
+                        <!-- Handle -->
+                        <div class="absolute top-0 bottom-0 w-1.5 bg-gray-900 left-1/2 transform -translate-x-1/2 pointer-events-none z-10 slider-handle">
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center text-white shadow-lg border-2 border-white">
+                                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            </div>
                         </div>
                     </div>
                     <div
-                        class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-30 pointer-events-none">
                         <h4 class="text-2xl font-serif font-bold mb-1">Chesterfield Sofa</h4>
                         <div class="flex justify-between items-center text-sm text-gray-300">
                             <span>Leather Re-upholstery</span>
@@ -457,22 +461,33 @@
 
                 <!-- Project Card -->
                 <div class="group relative overflow-hidden rounded-xl">
-                    <div class="grid grid-cols-2">
-                        <div class="relative">
+                    <div class="relative h-80 w-full">
+                        <!-- After -->
+                        <img src="https://images.pexels.com/photos/7760167/pexels-photo-7760167.jpeg" alt="After"
+                            class="absolute inset-0 w-full h-full object-cover">
+                        <span
+                            class="absolute top-4 right-4 bg-walnut-brown text-white text-xs px-4 py-1.5 uppercase tracking-wider font-bold rounded-full z-10 shadow-md">After</span>
+
+                        <!-- Before -->
+                        <div class="absolute inset-0 w-full h-full before-wrapper" style="clip-path: inset(0 50% 0 0);">
                             <img src="https://images.pexels.com/photos/7760167/pexels-photo-7760167.jpeg" alt="Before"
-                                class="w-full h-80 object-cover filter grayscale">
+                                class="absolute inset-0 w-full h-full object-cover filter grayscale">
                             <span
-                                class="absolute top-4 left-4 bg-black/80 text-xs px-2 py-1 uppercase tracking-wider font-bold">Before</span>
+                                class="absolute top-4 left-4 bg-black/80 text-white text-xs px-4 py-1.5 uppercase tracking-wider font-bold rounded-full shadow-md">Before</span>
                         </div>
-                        <div class="relative">
-                            <img src="https://images.pexels.com/photos/7760167/pexels-photo-7760167.jpeg" alt="After"
-                                class="w-full h-80 object-cover">
-                            <span
-                                class="absolute top-4 right-4 bg-walnut-brown text-white text-xs px-2 py-1 uppercase tracking-wider font-bold">After</span>
+
+                        <!-- Slider Input -->
+                        <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 image-slider-range" />
+
+                        <!-- Handle -->
+                        <div class="absolute top-0 bottom-0 w-1.5 bg-gray-900 left-1/2 transform -translate-x-1/2 pointer-events-none z-10 slider-handle">
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center text-white shadow-lg border-2 border-white">
+                                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            </div>
                         </div>
                     </div>
                     <div
-                        class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-30 pointer-events-none">
                         <h4 class="text-2xl font-serif font-bold mb-1">Oak Dining Table</h4>
                         <div class="flex justify-between items-center text-sm text-gray-300">
                             <span>French Polish & Refinishing</span>
@@ -540,14 +555,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <!-- Company Overview -->
                 <div>
-                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                    <a href="index.html" class="flex items-center gap-3 mb-6">
                         <div
-                            class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded bg-gradient-to-br from-walnut-brown to-walnut-dark text-warm-beige shadow-sm border border-walnut-brown/20 font-serif font-bold text-lg md:text-xl relative overflow-hidden flex-shrink-0">
-                            <span class="relative z-10">R</span>
-                            <div class="absolute inset-0 bg-black/10"></div>
+                            class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-lg bg-walnut-dark text-warm-beige font-serif font-bold text-2xl md:text-3xl shadow-sm flex-shrink-0">
+                            <span>R</span>
                         </div>
-                        <span class="font-serif font-bold text-xl text-gray-900 dark:text-white">Revive<span
-                                class="text-walnut-brown">Wood</span></span>
+                        <span class="font-serif font-bold tracking-normal text-2xl md:text-3xl text-gray-900 dark:text-white">Revive<span
+                                class="text-walnut-brown dark:text-warm-beige font-medium ml-0.5">Wood</span></span>
                     </a>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                         Dedicated to preserving the beauty and history of your furniture. We combine traditional
